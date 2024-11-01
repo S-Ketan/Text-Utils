@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export default function About() {
+export default function About(props) {
   useEffect(() => {
     const toggleAccordion = (event) => {
       const button = event.currentTarget;
@@ -23,7 +23,7 @@ export default function About() {
   }, []);
 
   return (
-    <div>
+    <div style={props.myStyle}>
       <div className="space-y-4" id="accordionExample">
         <div className="accordion-item border border-gray-300 rounded-lg overflow-hidden">
           <h2 className="accordion-header">

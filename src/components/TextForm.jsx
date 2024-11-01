@@ -71,7 +71,7 @@ export default function TextForm(props) {
   };
 
   return (
-    <div className="m-5">
+    <div className="m-5" style={props.myStyle}>
       <div>
         <div className="flex flex-col gap-3">
           <label htmlFor="myBox" className="text-3xl bg-gray-400 p-5">

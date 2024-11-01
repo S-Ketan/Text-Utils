@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import Toggle from "react-toggle";
 
 export default function Navbar(props) {
   // State to manage the visibility of the mobile menu
   const [isOpen, setIsOpen] = useState(false);
+  
+ 
 
   // Function to toggle the mobile menu
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
+  // Function to enable/disable Dark mode
+ 
   return (
-    <nav className="bg-gray-800 p-4 w-full ">
-      {/* Replace container with w-full */}
+    <nav className=" p-4 w-full " style={props.myStyle}>
       <div className="w-full flex justify-between items-center mx-auto">
-        {/* Navbar Title */}
-        <a className="text-xl font-bold text-white" href="/">
+        <a className="text-xl font-bold " href="/">
           {props.title}
         </a>
 
@@ -29,11 +31,16 @@ export default function Navbar(props) {
         </button>
 
         {/* Links for Desktop and Mobile */}
-        <div className={`${isOpen ? 'block' : 'hidden'} md:flex md:items-center md:space-x-4`} id="navbarSupportedContent">
+        <div
+          className={`${
+            isOpen ? "block" : "hidden"
+          } md:flex md:items-center md:space-x-4`}
+          id="navbarSupportedContent"
+        >
           <ul className="flex space-x-4">
             <li>
               <a
-                className="nav-link active text-white hover:bg-gray-200 px-3 py-2 rounded"
+                className="nav-link active  px-3 py-2 rounded"
                 aria-current="page"
                 href="/"
               >
@@ -41,10 +48,7 @@ export default function Navbar(props) {
               </a>
             </li>
             <li>
-              <a
-                className="nav-link text-white hover:bg-gray-200 px-3 py-2 rounded"
-                href="/about"
-              >
+              <a className="nav-link  px-3 py-2 rounded" href="/about">
                 About
               </a>
             </li>
@@ -60,9 +64,10 @@ export default function Navbar(props) {
             />
             <button
               className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
-              type="submit"
+              type="button"
+              onClick={props.toggleStyle}
             >
-              Enable Dark Mode
+              {props.btnText}
             </button>
           </form>
         </div>
@@ -77,5 +82,5 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title: 'Set Title here',
+  title: "Set Title here",
 };
