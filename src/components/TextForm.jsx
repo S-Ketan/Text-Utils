@@ -71,7 +71,7 @@ export default function TextForm(props) {
   };
 
   return (
-    <div className="m-5" style={props.myStyle}>
+    <div className={`m-5 ${props.mode==="dark" ? 'bg-gray-800 text-white':''}`} >
       <div>
         <div className="flex flex-col gap-3">
           <label htmlFor="myBox" className="text-3xl bg-gray-400 p-5">
@@ -80,7 +80,7 @@ export default function TextForm(props) {
           <textarea
             name="myBox"
             id="myBox"
-            className="border-2 p-5"
+            className={` p-5 ${props.mode==="dark" ? 'bg-gray-500 text-white':''}`}
             rows={5}
             onChange={handleOnChange}
             value={text}
@@ -127,14 +127,14 @@ export default function TextForm(props) {
         </div>
       </div>
       <div className="mt-5">
-        <p className="text-4xl">Words and Character counter</p>
+        <p className="text-4xl p-3">Words and Character counter</p>
         <div className="border-black border rounded-xl p-5 box-border mt-3">
           <p> Words: {text.split(" ").length} </p>
           <p> Characters : {text.length}</p>
         </div>
       </div>
       <div className="mt-5">
-        <p className="text-4xl">Preview</p>
+        <p className="text-4xl p-3">Preview</p>
         <p className="overflow-auto h-36 border border-black p-5 rounded-xl mt-3">{text}</p>
       </div>
     </div>

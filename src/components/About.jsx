@@ -23,12 +23,12 @@ export default function About(props) {
   }, []);
 
   return (
-    <div style={props.myStyle}>
+    <div >
       <div className="space-y-4" id="accordionExample">
         <div className="accordion-item border border-gray-300 rounded-lg overflow-hidden">
           <h2 className="accordion-header">
             <button
-              className="w-full text-left px-4 py-2 bg-gray-100 hover:bg-gray-200 font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className={`w-full text-left px-4 py-2   font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400 ${props.mode==='dark' ? 'text-white bg-gray-800 hover:bg-gray-600':'bg-gray-100 hover:bg-gray-200'}`}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -39,7 +39,7 @@ export default function About(props) {
             </button>
           </h2>
           <div id="collapseOne" className="accordion-collapse">
-            <div className="accordion-body px-4 py-3 bg-white text-gray-700">
+            <div className={`accordion-body px-4 py-3 ${props.mode==='dark' ? 'bg-gray-500 text-white' : 'bg-white text-gray-700'}`}>
               <strong>This is the first item's accordion body.</strong> It is shown by default,
               and you can style and modify this accordion body content as needed.
             </div>
@@ -49,7 +49,7 @@ export default function About(props) {
         <div className="accordion-item border border-gray-300 rounded-lg overflow-hidden">
           <h2 className="accordion-header">
             <button
-              className="w-full text-left px-4 py-2 bg-gray-100 hover:bg-gray-200 font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className={`w-full text-left px-4 py-2   font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400 ${props.mode==='dark' ? 'text-white bg-gray-800 hover:bg-gray-600':'bg-gray-100 hover:bg-gray-200'}`}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseTwo"
@@ -60,7 +60,7 @@ export default function About(props) {
             </button>
           </h2>
           <div id="collapseTwo" className="accordion-collapse hidden">
-            <div className="accordion-body px-4 py-3 bg-white text-gray-700">
+            <div className={`accordion-body px-4 py-3 ${props.mode==='dark' ? 'bg-gray-500 text-white' : 'bg-white text-gray-700'}`}>
               <strong>This is the second item's accordion body.</strong> You can style and modify
               this accordion body content as needed.
             </div>
@@ -70,7 +70,7 @@ export default function About(props) {
         <div className="accordion-item border border-gray-300 rounded-lg overflow-hidden">
           <h2 className="accordion-header">
             <button
-              className="w-full text-left px-4 py-2 bg-gray-100 hover:bg-gray-200 font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400"
+             className={`w-full text-left px-4 py-2   font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400 ${props.mode==='dark' ? 'text-white bg-gray-800 hover:bg-gray-600':'bg-gray-100 hover:bg-gray-200'}`}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseThree"
@@ -81,7 +81,7 @@ export default function About(props) {
             </button>
           </h2>
           <div id="collapseThree" className="accordion-collapse hidden">
-            <div className="accordion-body px-4 py-3 bg-white text-gray-700">
+            <div className={`accordion-body px-4 py-3 ${props.mode==='dark' ? 'bg-gray-500 text-white' : 'bg-white text-gray-700'}`}>
               <strong>This is the third item's accordion body.</strong> You can style and modify
               this accordion body content as needed.
             </div>

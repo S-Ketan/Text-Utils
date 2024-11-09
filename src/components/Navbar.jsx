@@ -5,17 +5,43 @@ import Toggle from "react-toggle";
 export default function Navbar(props) {
   // State to manage the visibility of the mobile menu
   const [isOpen, setIsOpen] = useState(false);
-  
- 
+  const [btnText, setBtnText] = useState("Enable Dark Mode");
+  const [myStyle, setMyStyle] = useState({
+    color: "white",
+    backgroundColor: "black",
+  });
+  /* const toggleStyle = () => {
+    if (btnText == "Enable Dark Mode") {
+      setMyStyle({
+        color: "white",
+        backgroundColor: "#3f423f",
+      });
+      setBtnText("Enable Light Mode");
+    } else {
+      setMyStyle({
+        color: "white",
+        backgroundColor: "black",
+      });
+      setBtnText("Enable Dark Mode");
+    }
+  }; */
 
   // Function to toggle the mobile menu
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const toggleButtonText=()=>{
+    if(props.mode === "light"){
+      setBtnText("Disable Dark Mode");  
+    }
+    else{
+      setBtnText("Enable Dark Mode");
+    }
+  }
   // Function to enable/disable Dark mode
- 
+
   return (
-    <nav className=" p-4 w-full " style={props.myStyle}>
+    <nav className="p-4 w-full text-white bg-black" >
       <div className="w-full flex justify-between items-center mx-auto">
         <a className="text-xl font-bold " href="/">
           {props.title}
@@ -62,13 +88,22 @@ export default function Navbar(props) {
               placeholder="Search"
               aria-label="Search"
             />
-            <button
-              className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
-              type="button"
-              onClick={props.toggleStyle}
-            >
-              {props.btnText}
-            </button>
+
+            <label className="inline-flex items-center cursor-pointer max-w-[60%]">
+              <input
+                type="checkbox"
+                value=""
+                className="sr-only peer"
+                onChange={(e) => {
+                  props.toggle();
+                  toggleButtonText();
+                }}
+              />
+              <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                {btnText}
+              </span>
+            </label>
           </form>
         </div>
       </div>

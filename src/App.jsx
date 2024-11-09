@@ -5,37 +5,20 @@ import TextForm from "./components/TextForm";
 import About from "./components/About";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
-  const [myStyle, setMyStyle] = useState({
-    color: "white",
-    backgroundColor: "black",
-  });
-  const toggleStyle = () => {
-    if (myStyle.color == "white") {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnText("Enable Light Mode");
-      
+  const [mode, setMode] = useState("light");
+  const toggle = () => {
+    if (mode === "light") {
+      setMode("dark");
     } else {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-      });
-      setBtnText("Enable Dark Mode");
+      setMode("light");
     }
   };
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prev) => !prev);
-  };
   return (
     <>
-      <Navbar title="TextUtils" onToggleDarkMode={toggleDarkMode} myStyle={myStyle} toggleStyle={toggleStyle} btnText={btnText}/>
-      <TextForm label="Text Converter" myStyle={myStyle}/>
-      <About myStyle={myStyle} />
+      <Navbar title="TextUtils" mode={mode} toggle ={toggle}/>
+      <TextForm label="Text Converter" mode={mode} />
+      <About mode={mode}/>
     </>
   );
 }
