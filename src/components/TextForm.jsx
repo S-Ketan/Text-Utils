@@ -6,11 +6,13 @@ export default function TextForm(props) {
     console.log("Handle up button was clicked");
     const newText = text.toUpperCase();
     setText(newText);
+    text.length > 0 ? props.showAlert("Text has been converted to UPPERCASE", "success") : props.showAlert("Please enter some text", "error");
   };
   const handleLoClick = () => {
     console.log("Handle Low button was clicked");
     const newText = text.toLowerCase();
     setText(newText);
+    text.length > 0 ? props.showAlert("Text has been converted to lowercase", "success") : props.showAlert("Please enter some text", "error");
   };
   const handleOnChange = (event) => {
     console.log("On Changge Clicked");
@@ -20,6 +22,7 @@ export default function TextForm(props) {
     console.log("Clear text clicked");
     const newText = "";
     setText(newText);
+    text.length > 0 ? props.showAlert("Text has been cleared", "success") : props.showAlert("Please enter some text", "error");
   };
   const handleCamelCaseClick = (str) => {
     console.log("CamelCase Clicked");
@@ -38,6 +41,7 @@ export default function TextForm(props) {
       })
       .join("");
     setText(camelCase);
+    text.length > 0 ? props.showAlert("Text has been converted to camelCase", "success") : props.showAlert("Please enter some text", "error"); 
   };
   const handlePascalCaseClick = () => {
     console.log("PascalCase Clicked");
@@ -52,6 +56,7 @@ export default function TextForm(props) {
       })
       .join("");
     setText(pascalCase);
+    text.length > 0 ? props.showAlert("Text has been converted to PascalCase", "success") : props.showAlert("Please enter some text", "error"); 
   };
   const handleInverseCaseClick = () => {
     console.log("InverseCase Clicked");
@@ -68,13 +73,14 @@ export default function TextForm(props) {
       return invertedChar.join('');
     }).join(' ');
     setText(inverseCase); 
+    text.length > 0 ? props.showAlert("Text has been converted to InverseCase", "success") : props.showAlert("Please enter some text", "error");  
   };
 
   return (
     <div className={`m-5 ${props.mode==="dark" ? 'bg-gray-800 text-white':''}`} >
       <div>
         <div className="flex flex-col gap-3">
-          <label htmlFor="myBox" className="text-3xl bg-gray-400 p-5">
+          <label htmlFor="myBox" className={`text-3xl p-5 ${props.mode==='dark' ? 'bg-gray-800':'bg-gray-400 '}`}>
             {props.label}
           </label>
           <textarea
@@ -135,7 +141,7 @@ export default function TextForm(props) {
       </div>
       <div className="mt-5">
         <p className="text-4xl p-3">Preview</p>
-        <p className="overflow-auto h-36 border border-black p-5 rounded-xl mt-3">{text}</p>
+        <p className="overflow-auto h-36 border border-black p-5 rounded-xl mt-3">{text.length>0?text : 'Enter something to preview it here'}</p>
       </div>
     </div>
   );
