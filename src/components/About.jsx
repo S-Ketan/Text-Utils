@@ -23,7 +23,7 @@ export default function About(props) {
   }, []);
 
   return (
-    <div >
+    <div className="mt-5">
       <div className="space-y-4" id="accordionExample">
         <div className="accordion-item border border-gray-300 rounded-lg overflow-hidden">
           <h2 className="accordion-header">

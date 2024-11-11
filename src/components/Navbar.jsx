@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Toggle from "react-toggle";
+import { Link } from "react-router-dom";
+// import Toggle from "react-toggle";
 
 export default function Navbar(props) {
   // State to manage the visibility of the mobile menu
   const [isOpen, setIsOpen] = useState(false);
   const [btnText, setBtnText] = useState("Enable Dark Mode");
-  const [myStyle, setMyStyle] = useState({
-    color: "white",
-    backgroundColor: "black",
-  });
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "white",
+  //   backgroundColor: "black",
+  // });
   /* const toggleStyle = () => {
     if (btnText == "Enable Dark Mode") {
       setMyStyle({
@@ -65,18 +66,18 @@ export default function Navbar(props) {
         >
           <ul className="flex space-x-4">
             <li>
-              <a
+              <Link
                 className="nav-link active  px-3 py-2 rounded"
                 aria-current="page"
-                href="/"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="nav-link  px-3 py-2 rounded" href="/about">
+              <Link className="nav-link  px-3 py-2 rounded" to="/about">
                 About
-              </a>
+              </Link>
             </li>
           </ul>
 
