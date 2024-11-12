@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+  document.title = "Textutils - Home";
   const [text, setText] = useState("Enter Text Here");
   const handleUpClick = () => {
     console.log("Handle up button was clicked");
@@ -77,7 +78,7 @@ export default function TextForm(props) {
   };
 
   return (
-    <div className={`m-5 ${props.mode==="dark" ? 'bg-gray-800 text-white':''}`} >
+    <div className={`m-5 ${props.mode==="dark" ? 'bg-gray-800 text-white':''}`}>
       <div>
         <div className="flex flex-col gap-3">
           <label htmlFor="myBox" className={`text-3xl p-5 ${props.mode==='dark' ? 'bg-gray-800':'bg-gray-400 '}`}>
@@ -86,45 +87,45 @@ export default function TextForm(props) {
           <textarea
             name="myBox"
             id="myBox"
-            className={` p-5 ${props.mode==="dark" ? 'bg-gray-500 text-white':''}`}
+            className={`p-5 ${props.mode==="dark" ? 'bg-gray-500 text-white':''}`}
             rows={5}
             onChange={handleOnChange}
             value={text}
           ></textarea>
 
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <button
-              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl "
+              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl"
               onClick={handleUpClick}
             >
               Change to UPPERCASE
             </button>
             <button
-              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl "
+              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl"
               onClick={handleLoClick}
             >
               Change to lowercase
             </button>
             <button
-              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl "
+              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl"
               onClick={handleClearClick}
             >
               Clear Text
             </button>
             <button
-              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl "
+              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl"
               onClick={handleCamelCaseClick}
             >
               Change to camelCase
             </button>
-            <button
-              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl "
+           {/*  <button
+              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl"
               onClick={handlePascalCaseClick}
             >
               Change to PascalCase
-            </button>
+            </button> */}
             <button
-              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl "
+              className="border border-black text-white bg-blue-400 w-fit p-2 rounded-2xl"
               onClick={handleInverseCaseClick}
             >
               Change to InverseCase
@@ -135,7 +136,7 @@ export default function TextForm(props) {
       <div className="mt-5">
         <p className="text-4xl p-3">Words and Character counter</p>
         <div className="border-black border rounded-xl p-5 box-border mt-3">
-          <p> Words: {text.split(" ").length} </p>
+          <p> Words: {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} </p>
           <p> Characters : {text.length}</p>
         </div>
       </div>

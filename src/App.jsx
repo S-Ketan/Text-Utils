@@ -37,7 +37,7 @@ function App() {
         <Alert alert={alert} />
         <Routes>
           <Route path="/about" element={<About mode={mode} />} />
-          <Route path="/" element={<TextForm label="Text Converter" mode={mode} showAlert={showAlert} />} />
+          <Route path="/" element={<TextForm label="Try TextUtils for text manipulation!" mode={mode} showAlert={showAlert} />} />
         </Routes>
       </Router>
     </>
