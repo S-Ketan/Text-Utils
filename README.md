@@ -18,7 +18,7 @@ TextUtils offers a range of text manipulation features such as converting text t
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/TextUtils.git
+    git clone https://github.com/S-Ketan/Text-Utils.git
     cd TextUtils
     ```
 
@@ -65,6 +65,3 @@ TextUtils/ ├── .gitignore ├── package.json ├── public/ │ ├
 
 Contributions are welcome! Please open an issue or submit a pull request for any changes.
 
-## License
-
-This project is licensed under the MIT License.
